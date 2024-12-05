@@ -1,0 +1,115 @@
+---
+layout: ../layouts/Layout.astro
+title: The MuMMER dataset
+description: A dataset for human-robot interaction scenarios available for research purposes
+favicon: favicon.svg
+---
+
+import Layout from "../layouts/Layout.astro";
+
+import Header from "../components/Header.astro";
+import Video from "../components/Video.astro";
+import HighlightedSection from "../components/HighlightedSection.astro";
+import SmallCaps from "../components/SmallCaps.astro";
+import Figure from "../components/Figure.astro";
+import Image from "../components/Image.astro";
+import TwoColumns from "../components/TwoColumns.astro";
+import YouTubeVideo from "../components/YouTubeVideo.astro";
+import LaTeX from "../components/LaTeX.astro";
+
+import outside from "../assets/outside.mp4";
+import transformer from "../assets/transformer.webp";
+import Splat from "../components/Splat.tsx"
+
+import CodeBlock from "../components/CodeBlock.astro";
+import Table from "../components/Table.astro";
+export const components = {pre: CodeBlock, table: Table}
+
+
+
+<Header
+  title={frontmatter.title}
+  authors={[
+    {
+      name: "Olivier Canévet",
+      url: "https://www.idiap.ch/~ocanevet",
+      institution: "",
+      notes: ["1"],
+    },
+    {
+      name: "Weipeng He",
+      url: "https://www.idiap.ch/~whe",
+      institution: "",
+      notes: ["1", "2"],
+    },
+    {
+      name: "Petr Motlicek",
+      url: "https://www.idiap.ch/~pmotlic",
+      institution: "",
+      notes: ["1"],
+    },
+    {
+      name: "Jean-Marc Odobez",
+      url: "https://www.idiap.ch/~odobez",
+      institution: "",
+      notes: ["1", "2"],
+    },
+  ]}
+  conference="RO-MAN 2020"
+  notes={[
+    {
+      symbol: "1",
+      text: "Idiap Research Instite",
+    },
+    {
+      symbol: "2",
+      text: "École Polytechnique Fédérale de Lausanne",
+    },
+  ]}
+  links={[
+    {
+      name: "Paper",
+      url: "https://www.idiap.ch/~odobez/publications/CanevetHeMotlicekOdobez-ROMAN2020.pdf",
+      icon: "fa-solid:file-pdf",
+    },
+    {
+      name: "Code",
+      url: "https://github.com/idiap/ihper",
+      icon: "mdi:github",
+    },
+    {
+      name: "IEEE",
+      url: "https://ieeexplore.ieee.org/document/9223340",
+      icon: "academicons:ieee",
+    },
+  ]}
+  />
+
+<HighlightedSection>
+
+## Abstract
+
+In the frame of the MuMMER project, we collected the **MuMMER dataset** a data set for human-robot interaction scenarios which **is available for research purposes**. It comprises 1 h 29 min of multimodal recordings of people interacting with the social robot Pepper in entertainment scenarios, such as quiz, chat, and route guidance. In the 33 clips (of 1 to 4 min long) recorded from the robot point of view, the participants are interacting with the robot in an unconstrained manner.
+
+The data set exhibits interesting features and difficulties, such as people leaving the field of view, robot moving (head rotation with embedded camera in the head), different illumination conditions. The data set contains color and depth videos from a [Kinect v2](https://developer.microsoft.com/en-us/windows/kinect/), an [Intel D435](https://www.intelrealsense.com/depth-camera-d435/), and the video from [Pepper 1.7](http://doc.aldebaran.com/2-5/family/pepper_technical/pepper_versions.html).
+
+All the visual faces and the identities in the data set were manually annotated, making the identities consistent across time and clips. The goal of the data set is to evaluate perception algorithms in multi-party human/robot interaction, in particular the reidentification part when a track is lost, as this ability is crucial for keeping the dialog history. The data set can easily be extended with other types of annotations.
+
+</HighlightedSection>
+
+
+## BibTeX citation
+
+```bibtex
+@inproceedings{9223340,
+  author={Canévet, Olivier and He, Weipeng and Motlicek, Petr and Odobez, Jean-Marc},
+  booktitle={2020 29th IEEE International Conference on Robot and Human Interactive Communication (RO-MAN)},
+  title={The MuMMER Data Set for Robot Perception in Multi-party HRI Scenarios},
+  year={2020},
+  volume={},
+  number={},
+  pages={1294-1300},
+  keywords={Visualization;Image color analysis;Robot vision systems;Entertainment industry;Benchmark testing;Cameras;Magnetic heads},
+  doi={10.1109/RO-MAN47096.2020.9223340}
+}
+```
