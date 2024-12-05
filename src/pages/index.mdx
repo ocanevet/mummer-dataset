@@ -17,6 +17,7 @@ import TwoColumns from "../components/TwoColumns.astro";
 import YouTubeVideo from "../components/YouTubeVideo.astro";
 import LaTeX from "../components/LaTeX.astro";
 
+import annotations from "../assets/annotations.jpg";
 import Splat from "../components/Splat.tsx"
 
 import CodeBlock from "../components/CodeBlock.astro";
@@ -100,6 +101,48 @@ All the visual faces and the identities in the data set were manually annotated,
 
 </HighlightedSection>
 
+## Statistics
+
+To properly benchmark tracking and perception algorithms, we have annotated all the faces and identities that appear in the three color video streams. All identities are consistent between frames, sequences, and sensors.
+
+<Figure caption="Example of face annotations">
+    <Image source={annotations} altText="Example of face annotations" />
+</Figure>
+
+| Feature                                | Value      |
+|----------------------------------------|------------|
+| Number of participants                 | 28         |
+| Number of protagonists                 | 22         |
+| Number of clips                        | 33         |
+| Shortest clip                          | 1 min 6 s  |
+| Longest clip                           | 5 min 6 s  |
+| Total duration                         | 1 h 29 min |
+| Maximum number of persons in one frame | 9          |
+| Kinect color frames                    | 80,488     |
+| Kinect depth frames                    | 80,865     |
+| Intel color frames                     | 80,346     |
+| Intel depth frames                     | 80,310     |
+| Robot color frames                     | 47,023     |
+| Robot depth frames                     | 23,450     |
+| Number of annotated faces              | 506,713    |
+
+## Evaluation
+
+The output of a tracker system can be evaluated in the same way as for the [MOT challenge](https://motchallenge.net/), using [MATLAB code](https://motchallenge.net/devkit/) or [Python code](https://github.com/cheind/py-motmetrics).
+We also provide a [baseline system](https://github.com/idiap/ihper).
+
+## Samples
+
+These videos shows 2 examples of color videos in which the images of the 3 sensors were concatenated (from left to right: a Kinect v2, Intel D435, Pepper 1.7.). Faces are blurred and audio is removed for privacy issues (distributed data contains raw data, not blurred, and with audio).
+
+<TwoColumns>
+  <Figure slot="left" caption="An easy sequence (only 2 protagonists, no passerby)">
+    <YouTubeVideo videoId="HBCBF7iL5CU" />
+  </Figure>
+  <Figure slot="right" caption="A hard sequence (3 protagonists, multiple passerby)">
+    <YouTubeVideo videoId="LbD4J3YPiJs" />
+  </Figure>
+</TwoColumns>
 
 ## BibTeX citation
 
